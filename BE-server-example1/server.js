@@ -1,13 +1,24 @@
 import express from "express";
 
+// 1. Prepare the application
 // This creates server object
 const app = express();
 
+// 2. Add endpoints
+// The order of endpoints matters;)
 // First endpoint - "GET /"
 app.get("/", (req, res) => {
+  console.log("GET /");
   res.send("Hello world!");
 });
 
+// Second endpoint -"GET /chush"
+app.get("/chush", (req, res) => {
+  console.log("GET /chush");
+  res.send("Chush is found!");
+});
+
+// 3. Start application
 app.listen(3000, () => {
   console.log("Listening to http://localhost:3000");
 });

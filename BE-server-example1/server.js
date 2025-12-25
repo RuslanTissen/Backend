@@ -3,6 +3,7 @@ import express from "express";
 // 1. Prepare the application
 // This creates server object
 const app = express();
+const luckNumber = Math.round(Math.random() * 20);
 
 // 2. Add endpoints
 // The order of endpoints matters;)
@@ -15,7 +16,8 @@ app.get("/", (req, res) => {
 // Second endpoint -"GET /chush"
 app.get("/chush", (req, res) => {
   console.log("GET /chush");
-  res.send("Chush is found!");
+  // HERE
+  res.send("Chush found luckNumber: " + luckNumber);
 });
 
 // 3. Start application

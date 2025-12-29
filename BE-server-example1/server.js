@@ -16,8 +16,21 @@ app.get("/", (req, res) => {
 // Second endpoint -"GET /chush"
 app.get("/chush", (req, res) => {
   console.log("GET /chush");
-  // HERE
-  res.send("Chush found luckNumber: " + luckNumber);
+  res.send("<h1>Chush found luckNumber: " + luckNumber + "</h1>");
+});
+
+// Third endpoind - "GET /pet"
+app.get("/pet", (req, res) => {
+  const pet = {
+    name: "Tuzik",
+    age: "???",
+  };
+  res.send(pet);
+});
+
+// Fallback endpoint - "GET *splat"
+app.get("/*splat", (req, res) => {
+  res.send("404: Resource not found");
 });
 
 // 3. Start application

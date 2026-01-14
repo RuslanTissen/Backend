@@ -1,16 +1,20 @@
 import express from "express";
 
-// 1. Prepare the application
-// This creates server object
 const app = express();
 const luckNumber = Math.round(Math.random() * 20);
 
-// 2. Add endpoints
-// The order of endpoints matters;)
-// First endpoint - "GET /"
-app.get("/", (req, res) => {
-  console.log("GET /");
-  res.send("Hello world!");
+app.get("/", async (req, res) => {
+  // Добавили async
+  try {
+    const response = await fetch(
+      "https://jsonplaceholder.typicode.com/todos/1"
+    );
+    const json = await response.json(); // Ждем распаковки
+
+    res.send(json); // Отправляем реальные данные вместо "War of the worlds"
+  } catch (error) {
+    res.status(500).send("Ошибка при загрузке данных");
+  }
 });
 
 // Second endpoint -"GET /chush"

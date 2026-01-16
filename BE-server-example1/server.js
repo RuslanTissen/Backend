@@ -1,20 +1,19 @@
 import express from "express";
+import axios from "axios";
 
 const app = express();
 const luckNumber = Math.round(Math.random() * 20);
 
-app.get("/", async (req, res) => {
-  // Добавили async
-  try {
-    const response = await fetch(
-      "https://jsonplaceholder.typicode.com/todos/1"
-    );
-    const json = await response.json(); // Ждем распаковки
+app.get("/", (req, res) => {
+  const promise = axios({
+    method: "get",
+    url: "https://jsonplaceholder.typicode.com/todos/1",
+  });
+  promise.then(function (response) {
+    console.log("Response: ", response);
+  });
 
-    res.send(json); // Отправляем реальные данные вместо "War of the worlds"
-  } catch (error) {
-    res.status(500).send("Ошибка при загрузке данных");
-  }
+  res.send("Hello world!");
 });
 
 // Second endpoint -"GET /chush"

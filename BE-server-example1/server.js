@@ -10,10 +10,9 @@ app.get("/", (req, res) => {
     url: "https://jsonplaceholder.typicode.com/todos/1",
   });
   promise.then(function (response) {
-    console.log("Response: ", response);
+    res.send("Hello RESPONSE!");
   });
-
-  res.send("Hello world!");
+  console.log("sending response to client");
 });
 
 // Second endpoint -"GET /chush"

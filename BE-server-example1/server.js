@@ -5,13 +5,17 @@ const app = express();
 const luckNumber = Math.round(Math.random() * 20);
 
 app.get("/", (req, res) => {
-  const promise = axios({
+  axios({
     method: "get",
-    url: "https://jsonplaceholder.typicode.com/todos/1",
-  });
-  promise.then(function (response) {
-    res.send("Hello RESPONSE!");
-  });
+    url: "https://jsonplaceholder.typicode.ckwdjbvklwkjvbom/todos/1",
+  })
+    .then(function (response) {
+      res.send("Hello RESPONSE!");
+    })
+    .catch(function (err) {
+      console.log("Oh NO! We have got an ERROR!!!", err);
+      res.send("An error has happened");
+    });
   console.log("sending response to client");
 });
 

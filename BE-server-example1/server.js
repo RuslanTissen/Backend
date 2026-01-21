@@ -7,7 +7,7 @@ const luckNumber = Math.round(Math.random() * 20);
 app.get("/", (req, res) => {
   axios({
     method: "get",
-    url: "https://jsonplaceholder.typicode.ckwdjbvklwkjvbom/todos/1",
+    url: "https://google.com/ksjdvbnksjdvbskvjnsdvkjn.png",
   })
     .then(function (response) {
       res.send("Hello RESPONSE!");

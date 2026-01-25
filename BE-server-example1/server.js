@@ -19,10 +19,11 @@ app.get("/", (req, res) => {
   console.log("sending response to client");
 });
 
+import { readFile } from "node:fs/promises";
+
 // Second endpoint -"GET /chush"
 app.get("/chush", (req, res) => {
-  console.log("GET /chush");
-  res.send("<h1>Chush found luckNumber: " + luckNumber + "</h1>");
+  readFile("test.txt", "utf-8").then((stuff) => res.send({ data: stuff }));
 });
 
 // Third endpoind - "GET /pet"

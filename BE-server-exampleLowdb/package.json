@@ -1,0 +1,14 @@
+{
+  "name": "be-server-examplelowdb",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "lowdb": "^7.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}

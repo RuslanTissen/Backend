@@ -30,7 +30,7 @@
 - Can have a request body / payload
 
 ```js
-const newUser = { name: "Rauli", age: "eternal" };
+const newUser = { name: "Sharik", age: "eternal" };
 
 const config = {
   method: "POST",
@@ -41,7 +41,7 @@ const config = {
   },
 };
 
-fetch("http://localhost:2342?key=123", config)
+fetch("http://localhost:2547?key=123", config)
   .then((res) => res.json())
   .then((stuff) => console.log(stuff));
 ```

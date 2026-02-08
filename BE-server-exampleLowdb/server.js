@@ -5,15 +5,12 @@ import db from "./db.js";
 const app = express();
 app.use(express.json());
 
-// Lowdb practice
-// db.data.posts.push({ id: 1, content: "Alexander likes pancekes!" });
-// db.write();
-
 // 2. add endpoints
 app.get("/", (req, res) => res.send("Root get!"));
 
 app.post("/", (req, res) => {
-  console.log(req.body);
+  db.data.posts.push(req.body);
+  db.write();
   res.send("Root POST");
 });
 

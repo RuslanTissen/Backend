@@ -1,0 +1,15 @@
+GET http://localhost:8080
+
+###
+
+POST http://localhost:8080
+    Content-Type: application/json
+
+    {
+        "name": "Jerry",
+        "title": "mouse"
+    }
+
+###
+
+GET http://google.com

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather APP</title>
+  </head>
+  <body>
+    <h1>Weather app</h1>
+    <input type="text" id="city" />
+    <br />
+    <button id="button">Get weather</button>
+
+    <script>
+      // Button is clicked by user
+      // Get the city name from the input
+      // Request the city weather from Backend
+      // When we`he got a response, display that response
+
+      const btn = document.querySelector("#button");
+      btn.addEventListener("click", () => {
+        const city = document.querySelector("#city");
+        const cityName = city.value;
+        alert(cityName);
+
+        const config = {
+          method: "POST",
+          body: JSON.stringify({ city: cityName }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        };
+
+        fetch("http://localhost:3000/weather", config)
+          .then((response) => response.json())
+          .then((result) => alert(JSON.stringify(result)));
+      });
+    </script>
+  </body>
+</html>

@@ -4,20 +4,24 @@ import cors from "cors";
 // 1. Initialize an application
 const app = express();
 app.use(cors());
-app.use(express.json()); // Parses(populates) incoming requests into req.body
+app.use(express.json());
+
+const history = [];
 
 // 2. Add endpoints
 app.post("/weather", (req, res) => {
-  console.log("POST /weather");
-  // read city from the request
-  console.log(req.body);
-
-  // Do some stuff!!!
-
-  res.send({
+  const data = {
     requestedCity: req.body.city,
-    temperature: Math.round(Math.random() * 20),
-  });
+    temperatur: Math.round(Math.random() * 20),
+  };
+
+  history.push(data);
+
+  res.send(data);
+});
+
+app.get("/history", (req, res) => {
+  res.send(history);
 });
 
 // 3. Start listening to requests

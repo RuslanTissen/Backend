@@ -2,8 +2,13 @@ import express from "express";
 
 const app = express();
 
+app.use((req, res, next) => {
+  console.log("<Request Coming In!>");
+  next();
+});
+
 app.get("/", (req, res) => {
-  res.send("Hello");
+  res.send("Hello!!!!");
 });
 
 app.listen(3030, () => {

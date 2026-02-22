@@ -1,4 +1,4 @@
-GET http://localhost:3030
+POST http://localhost:3030/password
 
 ###
 

@@ -1,23 +1,12 @@
 import express from "express";
+import addFruit from "./middleware/addFruit.js";
+import luckyLoggerReq from "./middleware/luckyLoggerReq.js";
 
 const app = express();
 
-app.use((req, res, next) => {
-  console.log("<Request Coming In!>");
-  req.fruit = "delicious!";
-  next(); // continue processing request
-  console.log("А я выполнюсь в самом конце!");
-});
+app.use(addFruit);
 
-app.use((req, res, next) => {
-  console.log(`Req: ${req.method} ${req.url} ${req.fruit}`);
-
-  if (Math.random() > 0.7) {
-    next(); // continue processing request
-  } else {
-    res.send("Bad luck");
-  }
-});
+app.use(luckyLoggerReq);
 
 app.get("/", (req, res) => {
   res.send("Hello!!!!");

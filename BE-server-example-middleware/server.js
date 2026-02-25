@@ -3,10 +3,19 @@ import addFruit from "./middleware/addFruit.js";
 import luckyLoggerReq from "./middleware/luckyLoggerReq.js";
 
 const app = express();
-
 app.use(addFruit);
 
-app.use(luckyLoggerReq);
+app.get(
+  "/users",
+  luckyLoggerReq,
+  (req, res, next) => {
+    console.log(" /users loading");
+    next();
+  },
+  (req, res) => {
+    res.send("Users here hallo");
+  },
+);
 
 app.get("/", (req, res) => {
   res.send("Hello!!!!");

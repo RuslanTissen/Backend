@@ -17,8 +17,8 @@ app.get(
   },
 );
 
-app.get("/", (req, res) => {
-  res.send("Hello!!!!");
+app.use((req, res) => {
+  res.send("Resource not found!");
 });
 
 app.listen(3030, () => {

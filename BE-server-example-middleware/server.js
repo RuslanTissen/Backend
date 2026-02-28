@@ -7,7 +7,6 @@ app.use(addFruit);
 
 app.get(
   "/users",
-  luckyLoggerReq,
   (req, res, next) => {
     console.log(" /users loading");
     next();
@@ -17,8 +16,17 @@ app.get(
   },
 );
 
-app.use((req, res) => {
-  res.send("Resource not found!");
+app.post("/users", (req, res, next) => {
+  next(new Error("POST users not allowed"));
+});
+
+app.use("/", (req, res) => {
+  res.send("Resource not found!!!!!");
+});
+
+app.use((err, req, res, next) => {
+  console.log("ERROR during request processing", err);
+  res.send({ message: err.message });
 });
 
 app.listen(3030, () => {

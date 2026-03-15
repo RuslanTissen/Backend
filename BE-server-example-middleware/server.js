@@ -20,8 +20,8 @@ app.post("/users", (req, res, next) => {
   next(new Error("POST users not allowed"));
 });
 
-app.use("/", (req, res) => {
-  res.send("Resource not found!!!!!");
+app.use((req, res) => {
+  res.send("Resource not found!!!");
 });
 
 app.use((err, req, res, next) => {

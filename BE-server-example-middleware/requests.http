@@ -1,4 +1,4 @@
-POST http://localhost:3030/password
+POST http://localhost:3030/users
 
 ###
 

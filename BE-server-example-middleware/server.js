@@ -1,6 +1,9 @@
 import express from "express";
 import addFruit from "./middleware/addFruit.js";
-import luckyLoggerReq from "./middleware/luckyLoggerReq.js";
+
+function saveUserToDatabase() {
+  throw new Error("Saving user to database failed very badly misarably :((((");
+}
 
 const app = express();
 app.use(addFruit);
@@ -16,12 +19,13 @@ app.get(
   },
 );
 
-app.post("/users", (req, res, next) => {
-  next(new Error("POST users not allowed"));
+app.post("/users", (req, res) => {
+  saveUserToDatabase();
+  res.send("Done!");
 });
 
 app.use((req, res) => {
-  res.send("Resource not found!!!");
+  res.send({ error: "Resource not found!!!" });
 });
 
 app.use((err, req, res, next) => {

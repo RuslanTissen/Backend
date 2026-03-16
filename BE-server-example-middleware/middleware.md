@@ -66,6 +66,12 @@ app.get("/users", (req, res) => {
     console.error("Global Error Handler received an error!", err);
     res.send({ message: err.message });
   });
+
+
+
+
+
+
   ```
 
 ## EXAMPLE APP

@@ -66,14 +66,40 @@ app.get("/users", (req, res) => {
     console.error("Global Error Handler received an error!", err);
     res.send({ message: err.message });
   });
-
-
-
-
-
-
   ```
 
 ## EXAMPLE APP
 
 - https://github.com/FBW-E07/BE-Server-Example-Middleware
+
+## Homework:
+
+Ваша задача — создать Express сервер для фильтрации анкет кандидатов в DevHotSpot.
+
+JSON объект кандидата:
+
+{ "firstName": "иван", "lastName": "иванов", "age": "25", "groupCode": "DHS10", "skills": ["Node.js", "React"], "email": "ivan@example.org" }
+
+Часть 1: Эндпоинт /validateUser (POST)
+
+Создайте Middleware, которые:
+
+Проверяют наличие полей: firstName, lastName, age, groupCode, email.
+
+Пропускают только тех, кому 18+ лет.
+
+(Проверяют, что groupCode строго равен "DHS10".)
+
+Если всё ОК — статус 200 и сообщение "Кандидат прошел!". Если ошибка — статус 400 и причина (например, "Ошибка: возраст 18+").
+
+Часть 2: Эндпоинт /sanitizeUser (POST)
+
+Создайте Middleware для очистки:
+
+Capitalize: Имя и Фамилия должны начинаться с заглавной буквы.
+
+Sort: Сортировка массива skills по алфавиту.
+
+Type: Преобразование age из строки в число (number).
+
+API должен всегда возвращать стабильный JSON.

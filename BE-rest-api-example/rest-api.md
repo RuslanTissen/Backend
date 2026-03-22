@@ -57,7 +57,7 @@
       title: "My Post -- UPDATED AGAIN"
     }
 
-    fetch("http://localhost:8080/posts/5", { method: "PATCH", body: JSON.stringify(patched), headers... })
+    fetch("http://localhost:8080/posts/5", { method: "PUT", body: JSON.stringify(updated), headers... })
 
 ```
 
@@ -86,6 +86,8 @@
 # 5xx (Ошибка сервера):
 
 500 Internal Server Error — У нас на бэкенде что-то упало.
+
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status
 
 ## Архитектура Эндпоинтов (Примеры)
 

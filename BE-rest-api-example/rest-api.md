@@ -118,7 +118,25 @@
 
 # Пример структуры:
 
-- PlantRouter (путь /plants) — всё, что связано с растениями.
-- UserRouter (путь /users) — всё, что связано с пользователями.
+-PlantRouter --/plants
+-GET/
+-POST/
+-DELETE/:id
+-PUT/:id
+
+-UserRouter --/users
+-GET/
+-POST/
+-DELETE/:id
+-PUT/:id
+
+-OderRouter --/oders
+-GET/
+-POST/
+-DELETE/:id
+-PUT/:id
+
+-PetDatabase API
+PetRouter --/pets
 
 ## Это и есть профессиональный подход к архитектуре, который мы внедряем в DevHotSpot.

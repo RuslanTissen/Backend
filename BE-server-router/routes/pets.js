@@ -16,5 +16,11 @@ petsRouter.get("/", (req, res) => {
   res.send(pets);
 });
 
+petsRouter.post("/", (req, res) => {
+  const pet = req.body;
+  pets.push(pet);
+  res.send(pet);
+});
+
 // export the router
 export default petsRouter;

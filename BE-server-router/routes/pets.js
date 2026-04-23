@@ -18,7 +18,10 @@ petsRouter.get("/", (req, res) => {
 
 petsRouter.post("/", (req, res) => {
   const pet = req.body;
+  pet.id = pets.length + 1;
   pets.push(pet);
+
+  res.status(201);
   res.send(pet);
 });
 

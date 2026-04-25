@@ -33,6 +33,16 @@ petsRouter.delete("/:id", (req, res) => {
 
   res.send(200);
 });
+petsRouter.put("/:id", (req, res) => {
+  const id = Number(req.params.id);
+  const pet = pets.find((x) => x.id === id);
+  const index = pets.indexOf(pet);
+
+  const newData = req.body;
+  pets.splice(index, 1, newData);
+
+  res.sendStatus(200);
+});
 
 // export the router
 export default petsRouter;

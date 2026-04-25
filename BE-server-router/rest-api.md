@@ -116,27 +116,20 @@
 
 - Когда проект растет, файл app.js превращается в кашу. Чтобы этого избежать, мы используем Express Router — он позволяет разбить маршруты по логическим модулям.
 
-# Пример структуры:
+# Домашнее задание: Масштабируем API (CRUD).
 
--PlantRouter --/plants
--GET/
--POST/
--DELETE/:id
--PUT/:id
+# Проект: TEA Plant Shop (Магазин растений):
 
--UserRouter --/users
--GET/
--POST/
--DELETE/:id
--PUT/:id
+PlantRouter -- /plants
 
--OderRouter --/oders
--GET/
--POST/
--DELETE/:id
--PUT/:id
+- GET /
+- POST /
+- DELETE /:id
+- PUT /:id
 
--PetDatabase API
-PetRouter --/pets
+UserRouter -- /users
 
-## Это и есть профессиональный подход к архитектуре, который мы внедряем в DevHotSpot.
+- GET /
+- POST /
+- DELETE /:id
+- PUT /:id

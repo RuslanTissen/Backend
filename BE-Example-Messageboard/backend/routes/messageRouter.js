@@ -9,11 +9,16 @@ messageRouter
     // Assumption: request contains a body with a valid message object
     req.body.id = Date.now();
     data.push(req.body);
-    res.sendStatus(201);
+    res.status(201);
+    res.send({ sucess: true, message: req.body });
   })
 
-  .put("/:id", (req, res) => res.sendStatus(501))
-  .patch("/:id", (req, res) => res.sendStatus(501))
-  .delete("/:id", (req, res) => res.sendStatus(501));
+  .put("/:id", (req, res) => res.status(501).send({ error: "Not implemented" }))
+  .patch("/:id", (req, res) =>
+    res.status(501).send({ error: "Not implemented" }),
+  )
+  .delete("/:id", (req, res) =>
+    res.status(501).send({ error: "Not implemented" }),
+  );
 
 export default messageRouter;

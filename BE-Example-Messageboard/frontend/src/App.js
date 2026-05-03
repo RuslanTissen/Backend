@@ -2,6 +2,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 
+const password = prompt("What is the password?");
+console.log("PASSWORD IS ", password);
+
 function App() {
   const [messages, setMessages] = useState([]);
   const [name, setName] = useState("");
@@ -9,9 +12,20 @@ function App() {
 
   useEffect(() => {
     const url = "http://localhost:4000/messages";
-    fetch(url)
+    const config = {
+      headers: {
+        Authorisation: password,
+      },
+    };
+    fetch(url, config)
       .then((response) => response.json())
-      .then((result) => setMessages(result))
+      .then((result) => {
+        if (result.error) {
+          alert("ERROR " + result.error);
+          return;
+        }
+        setMessages(result);
+      })
       .catch((error) => {
         console.error(error);
         alert(error.message);
@@ -26,6 +40,7 @@ function App() {
     const config = {
       method: "POST",
       headers: {
+        Authorisation: password,
         "content-Type": "application/json",
       },
       body: JSON.stringify(payload),
@@ -33,7 +48,10 @@ function App() {
     fetch(url, config)
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
+        if (result.error) {
+          alert("ERROR " + result.error);
+          return;
+        }
         setMessages([...messages, result.message]);
       })
       .catch((error) => {

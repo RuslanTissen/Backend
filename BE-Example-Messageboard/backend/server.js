@@ -2,13 +2,14 @@ import express from "express";
 import cors from "cors";
 import requestLogger from "./middleware/requestLogger.js";
 import messageRouter from "./routes/messageRouter.js";
+import checkPassword from "./middleware/checkPassword.js";
 
 // Initialize express app
 const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(requestLogger);
-// TODO: App password Checking
+app.use(checkPassword);
 
 // Add endpoints
 app.use("/messages", messageRouter);

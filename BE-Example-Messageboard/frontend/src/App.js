@@ -65,6 +65,7 @@ function App() {
   return (
     <div className="App">
       <h1>Message board</h1>
+
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3">
           <Form.Label>Name</Form.Label>
